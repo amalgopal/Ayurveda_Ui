@@ -9,8 +9,8 @@ class ContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Container(
-      width: screenSize.width,
-      height: screenSize.height * 0.2,
+      width: double.infinity,
+      // height: screenSize.height * 0.2,
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 219, 218, 218),
           borderRadius: BorderRadius.circular(20)),

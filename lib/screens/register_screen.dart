@@ -170,7 +170,124 @@ class _ScreenRegisterState extends State<ScreenRegister> {
                       ),
                     ),
                   ),
-                  
+                  SizedBox(
+                    height: screenSize.height * 0.02,
+                  ),
+                  const Text('Total amount'),
+                  TextFieldWidget(hintText: ''),
+                  SizedBox(
+                    height: screenSize.height * 0.02,
+                  ),
+                  const Text('Payment Method'),
+                  Row(
+                    children: [
+                      Row(
+                        children: [
+                          Radio<String>(
+                            value: 'Cash',
+                            groupValue: _selectedPaymentMethod,
+                            onChanged: (String? value) {
+                              setState(() {
+                                _selectedPaymentMethod = value;
+                              });
+                            },
+                          ),
+                          const Text('Cash')
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Radio<String>(
+                            value: 'Card',
+                            groupValue: _selectedPaymentMethod,
+                            onChanged: (String? value) {
+                              setState(() {
+                                _selectedPaymentMethod = value;
+                              });
+                            },
+                          ),
+                          const Text('Card')
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Radio<String>(
+                            value: 'UPI',
+                            groupValue: _selectedPaymentMethod,
+                            onChanged: (String? value) {
+                              setState(() {
+                                _selectedPaymentMethod = value;
+                              });
+                            },
+                          ),
+                          const Text('UPI')
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: screenSize.height * 0.02,
+                  ),
+                  const Text('Balance Amount'),
+                  TextFieldWidget(hintText: ''),
+                  SizedBox(
+                    height: screenSize.height * 0.02,
+                  ),
+                  const Text('Treatment Date'),
+                  TextField(
+                    controller: _dateController,
+                    decoration: InputDecoration(
+                      hintText: 'Select date',
+                      border: const OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.calendar_today),
+                        onPressed: () => _selectDate(context),
+                      ),
+                    ),
+                    readOnly: true,
+                  ),
+                  SizedBox(
+                    height: screenSize.height * 0.02,
+                  ),
+                  const Text('Treatment Time'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      DropdownMenu(
+                        hintText: 'hour',
+                        dropdownMenuEntries: hour
+                            .map<DropdownMenuEntry<dynamic>>((var value) =>
+                                DropdownMenuEntry(
+                                    value: value, label: value.toString()))
+                            .toList(),
+                      ),
+                      DropdownMenu(
+                        hintText: 'minutes',
+                        dropdownMenuEntries: minutes
+                            .map<DropdownMenuEntry<dynamic>>((var value) =>
+                                DropdownMenuEntry(
+                                    value: value, label: value.toString()))
+                            .toList(),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: screenSize.height * 0.02,
+                  ),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: const ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll(
+                          Color.fromARGB(255, 140, 225, 143),
+                        ),
+                      ),
+                      child: const Text(
+                        'Save',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
